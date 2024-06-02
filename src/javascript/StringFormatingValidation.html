@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+        function RegisterClick()
+        {
+            var username = document.getElementById("username").value;
+            var usernameError = document.getElementById("usernameError");
+            if(username == "")
+            {
+                usernameError.innerHTML = "UserName Required".fontcolor('red');
+            }
+        }
+        function CheckUserCase()
+        {
+            var username =document.getElementById("username").value;
+            var firstCharCode = username.charCodeAt(0);
+            var usernameError = document.getElementById("usernameError")
+            if(firstCharCode>=65 && firstCharCode<=90)
+            {
+                usernameError.innerHTML="";
+            }
+            else
+            {
+                usernameError.innerHTML = "Name Must start with uppercase letter".fontcolor('red');
+            }
+        }
+        function VerifyUserName()
+        {
+            var username = document.getElementById("username").value;
+            var usernameError = document.getElementById("usernameError");
+            var registerButton = document.querySelector('button');
+            if(username=="") 
+            {
+                usernameError.innerHTML = "user Name Required".fontcolor('red');
+                registerButton.disabled = true
+            }
+            else
+            {
+                usernameError.innerHTML = '';
+                registerButton.disabled = false;
+            }
+        }
+    </script>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <h2>Register User</h2>
+      <dl>
+        <dt>User Name</dt>
+        <dd>
+          <input type="text" id="username" onkeyup="CheckUserCase()" onblur="VerifyUserName()" />
+        </dd>
+        <dd id="usernameError"></dd>
+        <dt>Password</dt>
+        <dd>
+          <input type="text" id="password" />
+        </dd>
+        <dd id="passwordError"></dd>
+        <dt>Mobile</dt>
+        <dd>
+          <input type="text" id="username" />
+        </dd>
+        <dd id="MobileError"></dd>
+      </dl>
+      <button onclick="RegisterClick()">Register</button>
+    </div>
+  </body>
+</html>

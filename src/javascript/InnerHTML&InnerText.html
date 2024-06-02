@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function DeleteClicked()
+        {
+            var flag = confirm(`Delete Record \n Record will be Deleted Permanently`);
+            if(flag==true)
+            {
+                document.querySelector("h1").innerHTML="<i>Record Deleted</i>"; //innerHTML Allows Formatted Text
+            }
+            else
+            {
+                document.querySelector("h1").innerText = "<b>you Canceled</b>";  //innerText will not allow Formats
+            }
+        }
+    </script>
+</head>
+<body>
+    <button onclick="DeleteClicked()">Delete</button>
+    <h1 align="center"></h1>
+</body>
+</html>

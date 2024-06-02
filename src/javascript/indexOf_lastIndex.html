@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function RegisterClick()
+        {
+            var email = document.getElementById("email").value;
+            var emailError = document.getElementById("emailError");
+            if(email.indexOf("@")<2)
+            {
+                emailError.innerHTML = "Please Include @ with 2 char prefix".fontcolor('red');
+            }
+            else
+            {
+                document.write(`Welcome ${email.substring(email.indexOf("@"),0)} <br> You successfully registered at our domain ${email.substring(email.indexOf("@")+1)}`);
+                
+            }
+        }
+    </script>
+</head>
+<body>
+    <dl>
+        <dt>Email</dt>
+        <dd><input type="email" id="email"></dd>
+        <dd id="emailError"></dd>
+    </dl>
+    <button onclick="RegisterClick()">Register</button>
+</body>
+</html>

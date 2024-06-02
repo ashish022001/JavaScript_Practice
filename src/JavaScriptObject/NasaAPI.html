@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.css">
+    <script>
+        function LoadData() {
+            fetch("https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=DEMO_KEY").then(function (response) {
+                return response.json();
+            })
+                .then(function (data) {
+                    for (var item of data.photos) {
+                        var tr = document.createElement("tr");
+                        var tdId = document.createElement("td");
+                        var tdCameraName = document.createElement("td");
+                        var tdPreview = document.createElement("td");
+                        var tdRoverName = document.createElement("td");
+
+                        tdId.innerHTML = item.id;
+                        tdCameraName.innerHTML = `${item.camera.full_name}-[${item.camera.name}]`;
+                        tdRoverName.innerHTML = item.rover.name;
+
+                        var img = document.createElement("img");
+                        img.src = item.img_src;
+                        img.width = "200";
+                        img.height = "200";
+                        tdPreview.appendChild(img);
+                        tr.appendChild(tdId);
+                        tr.appendChild(tdCameraName);
+                        tr.appendChild(tdPreview);
+                        tr.appendChild(tdRoverName);
+                        document.querySelector("tbody").appendChild(tr);
+                    }
+                })
+        }
+    </script>
+</head>
+
+<body class="container-fluid">
+    <div>
+        <h2>Mars Rover Photo</h2>
+        <button onclick="LoadData()" class="btn btn-primary">Get Details</button>
+    </div>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Photo Id</th>
+                <th>Camara Name</th>
+                <th>Preview</th>
+                <th>Rover Name</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+</body>
+
+</html>

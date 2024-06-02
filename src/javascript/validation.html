@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function SubmitClick(){
+            var username = document.getElementById("username").value;
+            var lblUserName = document.getElementById("lblUserName");
+            if(username=="")
+            {
+                lblUserName.innerHTML = "please provide userame";
+                lblUserName.style.color = "red";
+            }
+            else
+            {
+                document.write(`Hello ! ${username}`)
+            }
+        }
+    </script>
+</head>
+<body>
+    <dl>
+        <dt>User Name</dt>
+        <dd><input type="text" id="username"></dd>
+        <dd id="lblUserName"></dd>
+    </dl>
+    <button onclick="SubmitClick()">Submit</button>
+</body>
+</html>

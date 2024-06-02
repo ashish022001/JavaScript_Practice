@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.css">
+    <script>
+        function DeleteClick()
+            {
+                console.warn(`Delete Button Clicked`)
+                var flag = confirm(`Delete Record \n Record Will be deleted Permanently`)
+                if(flag == true)
+                {
+                    document.write("<h1 class='d-flex justify-content-center'><font color='red'>Record Deleted</font></h1>")
+                    console.warn(`Ok Button Clicked`)
+                }
+                else
+                {
+                    alert(`You Canceled`)
+                    console.warn(`Cancel Button Clicked`)
+                }
+            }
+    </script>
+</head>
+<body>
+    <button class="m-5 btn btn-primary" onclick="DeleteClick()">Delete</button>
+</body>
+</html>

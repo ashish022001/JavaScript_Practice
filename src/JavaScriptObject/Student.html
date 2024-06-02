@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.css">
+    <script>
+        function getSDataClick()
+        {
+            fetch("/src/data/student.json").then(function(response){
+                return response.json();
+            })
+            .then(function(data)
+            {
+                for(var student of data)
+                {
+                    var tr = document.createElement("tr");
+                    var tdSid = document.createElement("td");
+                    var tdName =document.createElement("td");
+                    var tdMobile =document.createElement("td");
+                    var tdClass =document.createElement("td");
+                    var tdAddress =document.createElement("td");
+                    var tdEmail =document.createElement("td");
+                    tdSid.innerHTML = student.sId;
+                    tdName.innerHTML = student.name;
+                    tdMobile.innerHTML = student.mobile;
+                    tdClass.innerHTML = student.class;
+                    tdClass.innerHTML = student.address;
+                    tdEmail.innerHTML = student.email;
+                    tr.appendChild(tdSid);
+                    tr.appendChild(tdName);
+                    tr.appendChild(tdMobile);
+                    tr.appendChild(tdClass);
+                    tr.appendChild(tdAddress);
+                    tr.appendChild(tdEmail);
+
+                    document.querySelector("tbody").appendChild(tr);
+                    
+                }
+            })
+        }
+    </script>
+</head>
+<body class="container-fluid">
+    <div>
+        <button onclick="getSDataClick()" class="btn btn-primary mt-3">Get Data</button>
+    </div>
+    <div>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Student ID</th>
+                    <th>Student Name</th>
+                    <th>Student Mobile</th>
+                    <th>Student Class</th>
+                    <th>Student Address</th>
+                    <th>Student Email</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+    </div>
+    
+</body>
+</html>

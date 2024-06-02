@@ -1,0 +1,35 @@
+[
+    {
+        "sId":"101",
+        "name":"Surya",  
+        "mobile":"846513151",
+        "class":"12th",
+        "address":"Mumbai",
+        "email":"surya@gmail.com"
+    },
+    {
+        "sId":"102",
+        "name":"Virat",  
+        "mobile":"8466513212",
+        "class":"10th",
+        "address":"Delhi",
+        "email":"virat@gmail.com"
+    },
+    {
+        "sId":"103",
+        "name":"Rohit",  
+        "mobile":"8465161321",
+        "class":"BA",
+        "address":"Nagpur",
+        "email":"rohit@gmail.com"
+    },
+    {
+        "sId":"104",
+        "name":"Sachin",  
+        "mobile":"966582355",
+        "class":"10th",
+        "address":"Mumbai",
+        "email":"sachin@gmail.com"
+    }
+
+]

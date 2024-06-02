@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.css">
+    <script>
+        function RegisterClick()
+        {
+            var username = document.getElementById("username").value;
+            var userError  = document.getElementById("userError");
+            var registerButton = document.querySelector("button");
+            if(username == "")
+            {
+                userError.innerHTML = "Required User Name".fontcolor('red');
+                registerButton.disabled = true;
+            }
+            else
+            {
+                userError.innerHTML = "";
+                registerButton.disabled = false;
+            }
+        }
+        function VerifyUserName()
+        {
+            var username = document.getElementById("username").value;
+            var userError  = document.getElementById("userError");
+            if(username == "")
+            {
+                userError.innerHTML  = "Please Enter User Name".fontcolor('red');
+            }
+            else
+            {
+                userError.innerHTML = "";
+            }
+        }
+        function CheckUserCase()
+        {
+            var username = document.getElementById("username").value;
+            var userError  = document.getElementById("userError");
+            var firstCharCode = username.charCodeAt(0);
+            if(firstCharCode>=65 && firstCharCode<=firstCharCode)  
+            {
+                userError.innerHTML = "";
+            }
+            else
+            {
+                userError.innerHTML = "Name Must Strat with Upper Later".fontcolor('red');
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container-fluid">
+    <h1>Register User</h1>
+    <dl>
+        <dt>User Name</dt>
+        <dd><input type="text" name="" onblur="VerifyUserName()" onkeyup="CheckUserCase()" id="username"></dd>
+        <dd id="userError"></dd>
+        <dt>Password</dt>
+        <dd><input type="password" id="password"></dd>
+        <dd id="passwordError"></dd>
+        <dt>Mobile</dt>
+        <dd><input type="text" id="mobile"></dd>
+        <dd id="mobileError"></dd>
+        <dt>Credit Card Number</dt>
+        <dd class="input-group"><input type="text" maxlength="16" id="CreditCard">
+            <span style="display: none;" id="CardType"><img id="cardimage" class="input-group-text" width="90" height="31"></span>
+        </dd>
+        <dt>Your Microsoft Account</dt>
+        <dd><input type="text" id="Email"></dd>
+        <dd id="EmailError"></dd>
+    </dl>
+    <button class="btn btn-primary" onclick="RegisterClick()">Register</button>
+</div>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var Login = {
+            username : "Ashish2001",
+            password : "Ashish@2001"
+        }
+        function SubmitClick()
+        {
+            var UserName = document.getElementById("txtuser").value;
+            var Password = document.getElementById("password").value;
+            if(UserName==Login.username  && Password==Login.password)
+            {
+                document.getElementById("msg").innerHTML = "Login Successfully".fontcolor('green')
+            }
+            else
+            {
+                document.getElementById("msg").innerHTML = "Invalid User".fontcolor('red')
+            }
+        }
+    </script>
+</head>
+<body>
+    <fieldset>
+        <legend>User Verify</legend>
+        <dl>
+            <dt>UserName</dt>
+            <dd><input type="text" onkeyup="VerifyUser()" id="txtuser"></dd>
+            <dt>Password</dt>
+            <dd><input type="password" id="password"></dd>
+        </dl>
+        <button onclick="SubmitClick()">Login</button>
+    </fieldset>
+
+    <h2 align="center" id="msg"></h2>
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    <script src="/node_modules/jquery/dist/jquery.js"></script>
+</body>
+</html>

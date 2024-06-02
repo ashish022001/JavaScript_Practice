@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var userDetails = {
+            cardNumber : "444498765420",
+            CVV : "4452",
+            Expiry : 2023
+        }
+        function CardNumberVerify()
+        {
+            var card = document.getElementById("cardNumber").value; 
+            if(card==userDetails.cardNumber)
+            {
+                document.getElementById("txtCvv").disabled = false;
+                document.getElementById("cardNumber").readOnly = true;
+            }
+        }
+        function VerifyCvv()
+        {
+            var vcc = document.getElementById("txtCvv").value;
+            if(vcc ==userDetails.CVV)
+            {
+                document.getElementById("expiry").disabled = false;
+                document.getElementById("txtCvv").readOnly = true;
+            }
+        }
+        function ExpiryVerify()
+        {
+            var Expiry = document.getElementById("expiry").value;
+            if(Expiry==userDetails.Expiry)
+            {
+                document.getElementById("btnPay").disabled = false;
+                document.getElementById("expiry").readOnly = true;
+            }
+        }
+    </script>
+</head>
+<body class="container"> 
+    <fieldset>
+        <legend>Peyment Details</legend>
+        <dl>
+            <dt>Card Number</dt>
+            <dd><input type="text" id="cardNumber" onkeyup="CardNumberVerify()"></dd>
+            <dt>CVV</dt>
+            <dd><input disabled type="text" onkeyup="VerifyCvv()" id="txtCvv" size="6"></dd>
+            <dt>expiry</dt>
+            <dd>
+            <select disabled id="expiry" onchange="ExpiryVerify()">
+                <option>2022</option>
+                <option>2023</option>
+                <option>2024</option>
+            </select>
+        </dd>
+    </dl>
+    <button disabled id="btnPay" >Pay</button>
+    </fieldset>
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    <script src="/node_modules/jquery/dist/jquery.js"></script>
+</body>
+</html>

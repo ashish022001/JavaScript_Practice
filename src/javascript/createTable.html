@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var categories = ["All","Electronics","Footwear","Fashion"];
+        function bodyload()
+        {
+            for(var item of categories)
+            {
+                var li = document.createElement("li");
+                li.innerHTML = item;
+                document.querySelector("ol").appendChild(li);
+
+                var option = document.createElement("option");
+                option.innerHTML = item;
+                document.getElementById("lstSelect").appendChild(option);
+
+                var tr = document.createElement("tr");
+                var td = document.createElement("td");
+                td.innerHTML = item;
+                tr.appendChild(td);
+                document.querySelector("tbody").appendChild(tr);
+            }
+        }
+    </script>
+</head>
+<body onload="bodyload()">
+    <h2>Categories</h2>
+    <ol></ol>
+    <select name="" id="lstSelect">
+
+    </select>
+    <table border="1" width="350">
+        <thead>
+            <th>Categories</th>
+        </thead>
+        <tbody>
+            
+        </tbody>
+    </table>
+</body>
+</html>

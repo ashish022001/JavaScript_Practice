@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modal Demo</title>
+    <link rel="stylesheet" href="/node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.css">
+   
+</head>
+<body class="container-fluid">
+    <h2>Product Details</h2>
+    <ul class="nav nav-tabs">
+        <li class="nav-item"><a href="#basic" data-bs-toggle="tab" class="nav-link"><span class="nav-text">Basic Details</span></a></li>
+        <li class="nav-item"><a href="#preview" data-bs-toggle="tab" class="nav-link"><span class="nav-text">Preview</span></a></li>
+        <li class="nav-item"><a href="#description" data-bs-toggle="tab" class="nav-link"><span class="nav-text">Description</span></a></li>
+        <li class="nav-item"><a href="#rating" data-bs-toggle="tab" class="nav-link"><span class="nav-text">Ratings & Reviews</span></a></li>
+    </ul>
+    <div class="tab-content mt-3">
+        <div class="tab-pane active" id="basic">
+            <dl>
+                <dt>Name</dt>
+                <dd>Realme</dd>
+                <dt>Price</dt>
+                <dd> &#8377; 10,000/-</dd>
+            </dl>
+        </div>
+        <div class="tab-pane" id="preview">
+            <img src="/images/data science.jpg" width="200" height="250">
+        </div>
+        <div class="tab-pane" id="description">
+           <p>something about realme mobile</p>
+           <ol>
+            <li>Feature-1</li>
+            <li>Feature-2</li>
+            <li>Feature-3</li>
+           </ol>
+        </div>
+        <div class="tab-pane" id="rating">
+            <dl>
+                <dt>Rating</dt>
+                <dd><span class="bi bi-star-fill text-success"></span> 4.2</dd>
+                <dt>Reviews</dt>
+                <dd>60,300</dd>
+            </dl>
+        </div>
+    </div>
+    <script src="/node_modules/jquery/dist/jquery.js"></script>
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+</body>
+</html>

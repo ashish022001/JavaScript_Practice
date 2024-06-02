@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Login</title>
+        <script>
+          var Login = {
+            username : "Ashish2001",
+            password : "Ashish@2001",
+            mobile : "8856866220"
+          }
+          function LoginClick()
+          {
+            var UserName = document.getElementById("txtUsername").value;
+            var Password = document.getElementById("password").value;
+            var msg = document.getElementById("msg");
+            if(UserName == Login.username)
+            {
+                msg.innerHTML = "Login SuccessFully".fontcolor('green');
+            }
+            else if(UserName == Login.mobile)
+            {   
+                msg.innerHTML = "OTP send your Mobile".fontcolor('green'); 
+            }
+            else
+            {
+                msg.innerHTML = "Invalid Username or Password"
+            }
+          }
+        </script>
+    </head>
+    <body>
+        <fieldset>
+            <legend>User Login</legend>
+            <dl>
+                <dt>User Name or Mobile</dt>
+                <dd><input type="text" id="txtUsername"></dd>
+                <dt>Password</dt>
+                <dd><input type="password" id="password"></dd>
+            </dl>
+            <button onclick="LoginClick()">Login</button>
+        </fieldset>
+        <h2 align="center" id="msg"></h2>
+    </body>
+</html>

@@ -1,0 +1,22 @@
+<script>
+    var product = {
+        "name":"",
+        "price":"",
+        "stock":"",
+        "shipped":[],
+        "Quantity":"",
+        "Total":function()
+        {
+            return this.Quantity*this.price;
+        },
+        "Print":function()
+        {
+            document.write(`Name=${this.name}<br>Price=${this.price}<br>stock=${this.stock}<br>Quanity=${this.Quantity}<br>shipped to=${this.shipped}<br>Total=${this.Total}`)
+        }
+    }
+    product.name=prompt("Enter Product Name");
+    product.price = parseFloat (prompt("Enter Product Price"));
+    product.stock = prompt("Enter Stock");
+    product.Quantity = parseInt(prompt("Enter Quantity"));
+    product.Print();
+</script>

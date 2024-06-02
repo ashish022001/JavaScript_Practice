@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function SubmitClick()
+        {
+            var username = document.getElementById("UserName").value;
+            var userError = document.getElementById("UserError");
+            if(username=="")
+            {
+                userError.innerHTML = "UserName is Required".fontcolor('red');
+            }
+        }
+        function VerifyClick()
+        {
+            var username = document.getElementById("UserName").value;
+            var userError = document.getElementById("UserError");
+            var registerButton = document.querySelector("button");
+            if(username=="")
+            {
+                userError.innerHTML =  "UserName is Required".fontcolor('red');
+                registerButton.disabled=true;
+            }
+            else
+            {
+                userError.innerHTML = "";
+                registerButton.disabled = false;
+            }
+        }
+        function VarifyPassword(){
+            var password = document.getElementById("Password").value;
+            var passwordError = document.getElementById("passwordError");
+            var regExp = /(?=.*[A-Z])\w{4,10}/;
+            if(password.match(regExp))
+            {
+                passwordError.innerHTML = "Strong Password".fontcolor("green");
+            }
+            else
+            {
+                if(password.length<4)
+                {
+                    passwordError.innerHTML = "Poor Password".fontcolor("red");
+                }
+                else
+                {
+                    password.innerHTML = "Week Password".fontcolor("orange");
+                }
+            }
+        }
+        function VarifyMobile()
+        {
+            var mobile = document.getElementById("mobile").value;
+            var mobileError = document.getElementById("mobileError");
+            var regExp = /\+91[0-9]{10}/;
+            if(mobile.match(regExp))
+            {
+                mobileError.innerHTML = "";
+            }
+            else
+            {
+                mobileError.innerHTML = "Invalid Mobile : +91 With 10 digit".fontcolor('red');
+            }
+        }        
+    </script>
+</head>
+<body>
+    <h2>Register User</h2>
+    <dl>
+        <dt>UserName</dt>
+        <dd><input type="text" id="UserName" onblur="VerifyClick()"></dd>
+        <dd id="UserError"></dd>
+        <dt>Password</dt>
+        <dd><input type="password" onkeyup="VarifyPassword()" id="Password"></dd>
+        <dd id="passwordError"></dd>
+        <dt>Mobile</dt>
+        <dd><input type="text" onblur="VarifyMobile()" id="mobile"></dd>
+        <dd id="mobileError"></dd>
+    </dl>
+    <button onclick="SubmitClick()">Register</button>
+</body>
+</html>

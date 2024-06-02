@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.css">
+    <script>
+        function bodyload() {
+            fetch("https://fakestoreapi.com/products").then(function (response) {
+                return response.json();
+            })
+                .then(function (data) {
+                    for (var item of data) {
+                        var div = document.createElement("div");
+                        div.className = "card m-2 p-2"
+                        div.style.width = "200px"
+                        div.innerHTML = `
+                    <img src=${item.image} height="200px" class="card-img-top">
+                    <div class="card-header" style="width:150px">
+                        <p>${item.title}</p>
+                    </div>
+                    <div class="card-body">
+                        <dl>
+                            <dt>Price </dt>
+                            <dd>${item.price}</dd>
+                            <dt>Rating</dt>
+                            <dd><span class="bi bi-star-fill text-success"></span> ${item.rating.rate}</dd>
+                        </dl>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-danger w-100">  <span class="bi bi-cart4"></span> Add to Card</button>
+                    </div>   
+                    `;
+                        document.getElementById("catelog").appendChild(div);
+                    }
+                })
+        }
+
+    </script>
+</head>
+
+<body onload="bodyload()" class="container-fluid">
+    <div id="catelog" class="d-flex flex-wrap">
+
+    </div>
+</body>
+
+</html>

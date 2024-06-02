@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.css">
+    <script>
+        function RegisterClick()
+        {
+            var UserName = document.getElementById("username").value;
+            var UserError = document.getElementById("userError");
+            if(UserName=="")
+            {
+              UserError.innerHTML = "Please Provide UserName".fontcolor('red');   
+            } 
+        }
+        function VarifyUser()
+        {
+            var UserName = document.getElementById("username").value;
+            var UserError = document.getElementById("userError");
+            var registerButton = document.querySelector("button");
+            if(UserName=="")
+            {
+                UserError.innerHTML = "Please Enter UserName".fontcolor('red');
+                registerButton.disabled = true;
+            }
+            else
+            {
+                UserError.innerHTML = "";
+                registerButton.disabled = false;
+            }
+        }
+        function VerifyPassword(){
+               var password = document.getElementById("password").value;
+               var passwordError = document.getElementById("PasswordError");
+               var regExp = /(?=.*[A-Z])\w{4,10}/;
+               if(password.match(regExp)) {
+                   passwordError.innerHTML = "Strong Password".fontcolor('green');
+               } else {
+                   if(password.length<4) {
+                       passwordError.innerHTML = "Poor Password".fontcolor('red');
+                   } else {
+                       passwordError.innerHTML = "Weak Password".fontcolor('orange');
+                   }
+               }
+        }
+        function VerifyMobile()
+        {
+            var Mobile = document.getElementById("mobile").value;
+            var MobileError = document.getElementById("mobileError");
+            var regExp = /\+91[0-9]{10}/;
+            if(Mobile.match(regExp))
+            {
+                MobileError.innerHTML = "";
+            }
+            else
+            {
+                MobileError.innerHTML = "Invalid Mobile +91 start with 10 digit".fontcolor('red');
+            }
+        }
+        function CheckCase()
+        {
+            var UserName = document.getElementById("username").value;
+            var firstCharCode = UserName.charCodeAt(0);
+               var userError = document.getElementById("userError");
+               if(firstCharCode>=65 && firstCharCode<=90)
+            {
+                userError.innerHTML = "";
+            }
+            else
+            {
+                userError.innerHTML = "Plase Start With Upper Latter".fontcolor('red');
+            }
+
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+    <h2>Register User</h2>
+    <dl>
+        <dt>UserName</dt>
+        <dd><input type="text" id="username" onkeyup="CheckCase()" onblur="VarifyUser()"></dd>
+        <dd id="userError"></dd>
+        <dt>Password</dt>
+        <dd><input type="password" id="password" onkeyup="VerifyPassword()"></dd>
+        <dd id="passwordError"></dd>
+        <dt>Mobile</dt>
+        <dd><input type="text" id="mobile" onblur="VerifyMobile()"></dd>
+        <dd id="mobileError"></dd>
+    </dl>
+    <button onclick="RegisterClick()" class="btn btn-primary">Register</button>
+</div>
+</body>
+</html>

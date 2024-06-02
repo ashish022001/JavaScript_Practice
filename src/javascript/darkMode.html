@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="/node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <style>
+        .container{
+            display: flex;
+           padding: 10px;
+            justify-content: center;
+            height: 400px;
+        }
+        form{
+            border: 2px solid black;
+            padding: 20px;
+        }
+    </style>
+    <script>
+        function ModeChange()
+        {
+            var theme = document.getElementById("theme");
+            if(theme.checked)
+            {
+                document.querySelector("form").className = "bg-dark p-3 text-white";
+                document.querySelector("button").className = "btn btn-light w-100";
+            }
+            else
+            {
+                document.querySelector("form").className = "bg-light p-3 text-black";
+                document.querySelector("button").className = "btn btn-dark w-100";
+            }
+        }
+    </script>
+</head>
+<body class="container-fluid"> 
+    <div class="container">
+        <form>
+            <div class="form-switch">
+                <input id="theme" onchange="ModeChange()" class="form-check-input" type="checkbox">Dark Mode
+            </div>
+            <div>
+                <h3>Register</h3>
+                <dl>
+                    <dt>username</dt>
+                    <dd><input type="text"></dd>
+                    <dt>Password</dt>
+                    <dd><input type="text" name="" id=""></dd>
+                    <dt>Email</dt>
+                    <dd><input type="text"></dd>
+                </dl>
+            </div>
+            <div>
+                <button class="btn btn-dark w-100">Register</button>
+            </div>
+        </form>
+    </div>    
+</body>
+</html>

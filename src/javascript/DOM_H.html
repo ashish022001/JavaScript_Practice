@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>JavaScript</title>
+        <script>
+            function bodyloady(){
+               document.querySelector("#pic").src="../public/images/shoe.jpg";
+               document.querySelector(".btn-register").value="Register";
+               document.querySelector(".btn-Login").value="Welcome to JavaScirpt";
+             
+            }
+        </script>
+    </head>
+    <body onload="bodyloady()">
+        <p></p>
+        <div>
+            <img width="100" name="pic" id="pic" height="100" border="1">
+        </div>
+        <div>
+            <form name="frmRegister">
+                <h2>Register</h2>
+                Email :<input type="email">
+                <input type="button" id="btnRegister" class="btn-register" name="btnRegister">
+            </form>
+        </div>
+        <div>
+            <form name="frmLogin">
+                <h2>Login</h2>
+                Mobile :<input type="text">
+                <input type="button" class="btn-Login" id="btnLogin" name="btnLogin">
+            </form>
+        </div>
+    </body>
+</html>

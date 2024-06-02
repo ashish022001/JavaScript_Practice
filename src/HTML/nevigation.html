@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="/node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <style>
+        menu{
+            background-color: lightgray;
+            width: 250px;
+            height: 500px;
+            padding: 20px;
+        }
+        details{
+            margin-top: 20px;
+        }
+        details div{
+            width: 150px;
+            background-color: black;
+            padding: 5px;
+            margin-top: 10px;
+            color: white;
+        }
+        details div:hover{
+            background-color: yellow;
+            color: black;
+            cursor: grab;
+        }
+    </style>
+</head>
+
+<body>
+   
+        <menu>
+            <div> <span class="bi bi-house-fill"></span> Home</div>
+            <details>
+                <summary>Electronics</summary>
+                <details>
+                    <summary>Televisions</summary>
+                    <div>Samsung</div>
+                    <div>LG</div>
+                </details>
+            </details>
+            <details>
+                <summary>Footwear</summary>
+                <div>Casuals</div>
+                <div>Boots</div>
+                <div>Sneakers</div>
+            </details>
+        </menu>
+   
+</body>
+
+</html>

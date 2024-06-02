@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+   <script>
+      function createClick()
+      {
+         var pic = document.createElement("img");
+         pic.src ="/images/bueger.jpg";
+         pic.width = "100";
+         pic.height = "100";
+         pic.border = "1";
+         document.getElementById("container").appendChild(pic);
+      }
+   </script>
+</head>
+<body>
+   <button onclick="createClick()">Create Images</button>
+   <div id="container">
+   </div>
+</body>
+</html>
