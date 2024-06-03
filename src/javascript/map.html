@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <script>
+        var categories = ["All","Electronics","Footwear","Fashion"]
+        categories.map(function(value){
+            document.write(`<li>${value}</li>`);
+        })
+    </script>  -->
+
+     <!-- Read value by using traditional for loops -->
+
+    <!-- <script>
+        var categories = ["All","Electronics","Footwear","Fashion"]
+        for(var i=0;i<categories.length;i++)
+        {
+            document.write(categories[i]+"<br>");
+        }
+    </script> -->
+         <!--  various array methods for reading values  -->
+         <!-- toString :- reads and present all values separated with "," -->
+
+    <!-- <script>
+        var categories =  ["All","Electronics","Footwear","Fashion"]
+        document.write(categories.toString())
+    </script> -->
+
+     <!-- join :- reads and presents all values with custom delimeter  -->
+
+    <!-- <script>
+        var categories =  ["All","Electronics","Footwear","Fashion"]
+        document.write(categories.join("->"))
+    </script> -->
+
+    <!-- slice() :- reads and present value between specific index  -->
+
+    <!-- <script>
+        var categories = ["All","Electronics","Footwear","Fashion"];
+        document.write(categories.slice(1,4))
+    </script> -->
+
+    <!-- find() :- reads and return first matching values according to given condition   -->
+    <script>
+        var price = [400,100,900,200,4500]
+        var result = price.find(function(value)
+    {
+        return value > 409
+    })
+    document.write(result);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

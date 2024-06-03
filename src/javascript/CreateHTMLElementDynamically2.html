@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var gallary = ["/images/bira.jpg","/images/peri.jpg","/images/bueger.jpg","/images/meas.jpg","/images/rolls.jpg"]
+        function bodyload()
+        {
+            for(var path of gallary)
+            {
+                var img = document.createElement("img")
+                img.src=path;
+                img.width= "200";
+                img.height="150"
+                document.querySelector("marquee").appendChild(img)
+
+            }
+        }
+    </script>
+</head>
+<body onload="bodyload()">
+    <marquee scrollamount="15">
+
+    </marquee>
+</body>
+</html>

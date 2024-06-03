@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var Categories = ["All","Electronics","Footwear","Fashion","Men's Clothing"]
+        function bodyload()
+        {
+            for(var item of Categories)
+            {
+                var li = document.createElement("li")
+                li.innerHTML = item;
+                document.querySelector("ol").appendChild(li);
+
+                var option = document.createElement("option");
+                option.text = item;
+                option.value = item
+                document.querySelector("select").appendChild(option)
+
+                var tr = document.createElement("tr");
+                var td = document.createElement("td");
+                td.innerHTML = item;
+                tr.appendChild(td);
+                document.querySelector("tbody").appendChild(tr)
+            }
+        }
+    </script>
+</head>
+<body onload="bodyload()">
+    <h1>Create a new HTML Element Dynamically</h1>
+    <h3>Category</h3>
+    <ol>
+
+    </ol>
+    <h3>Select Categories</h3>
+    <select id="">
+        
+    </select>
+    <h3>Categories Menu</h3>
+    <table border="1" width="300">
+        <thead>
+            <th>Categories</th>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+</body>
+</html>
