@@ -1,26 +1,85 @@
+
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script>
-       var username = prompt("Enter username");
-       if(username == '')
-       {
-        document.write("Name Can't be empty");
-       }
-       else if(username == null)
-       {
-        document.write("You cancel")
-       }
-       else
-       {
-        document.write(`username = ${username}`)
-       }
-    </script>
-</head>
-<body>
-    
-</body>
+<html>
+    <head>
+        <title>Array Manipulation</title>
+        <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.css">
+        <link rel="stylesheet" href="/node_modules/bootstrap-icons/font/bootstrap-icons.css">
+        <script>
+            var cities = ["Delhi", "Hyd"];
+            function LoadCities(){
+                cities.sort();
+                document.getElementById("lstCities").innerHTML = "";
+                for(var city of cities) {
+                    var option = document.createElement("option");
+                    option.text = city;
+                    option.value = city;  
+                    document.getElementById("lstCities").appendChild(option);
+                }
+            }
+            function bodyload(){
+                LoadCities();
+                GetCount();
+            }
+            function AddClick(){
+                var cityName = document.getElementById("txtCity").value;
+                var cityIndex = cities.indexOf(cityName);
+                if(cityIndex>=0) {
+                    alert(`${cityName} Exists`);
+                } else {
+                    if(cityName=="") {
+                        alert("Please Define a City Name");
+                    } else {
+                        cities.push(cityName);
+                        alert(`${cityName} added into Cities.`);
+                    }
+                }              
+                LoadCities();
+                GetCount();
+                document.getElementById("txtCity").value = "";
+            }
+            function GetCount(){
+                document.getElementById("count").innerHTML = cities.length;
+            }
+            function RemoveClick(){
+                var selectedCity = document.getElementById("lstCities").value;
+                var selectedIndex = cities.indexOf(selectedCity);
+                var flag = confirm(`Are you sure? Want to delete ${selectedCity}`);
+                if(flag==true) {
+                    cities.splice(selectedIndex,1);
+                }
+                LoadCities();
+                GetCount();
+            }
+        </script>
+    </head>
+    <body class="container-fluid" onload="bodyload()">
+        <div class="row">
+            <div class="col-4">
+                <div class="mt-3">
+                    <label class="form-label">Add New City</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="txtCity">
+                        <button onclick="AddClick()" class="btn btn-primary">Add</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-8">
+                <div class="mt-3">
+                    <label class="form-label">Select Your City : <span class="badge bg-dark text-white" id="count"></span></label>
+                    <div>
+                        <select id="lstCities" multiple class="form-select" size="3">
+
+                        </select>
+                    </div>
+                    <div class="mt-2">
+                        <button onclick="RemoveClick()" class="btn btn-danger">
+                            <span class="bi bi-trash-fill"></span>
+                            Remove City
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
 </html>

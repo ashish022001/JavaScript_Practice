@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NASA API</title>
+    <link
+      rel="stylesheet"
+      href="/node_modules/bootstrap/dist/css/bootstrap.css"
+    />
+    <script>
+      function GetDataClick() {
+        fetch(
+          "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=DEMO_KEY"
+        ).then(function (response) {
+          return response.json();
+        })
+        .then(function(data)
+        {
+          console.log(data)  
+          for(var product of data.photos)
+          {
+            var tr = document.createElement("tr");
+            var tdCameraID = document.createElement("td");
+            var tdCameraName = document.createElement("td");
+            var tdPreviews = document.createElement("td");
+            var tdRoverName = document.createElement("td");
+            
+
+            tdCameraID.innerHTML = product.id;
+            tdCameraName.innerHTML = `${product.camera.full_name}-[${product.camera.name}]`;
+            tdRoverName.innerHTML = product.rover.name;
+
+            var img = document.createElement("img");
+            img.src = product.img_src;
+            img.height = "120";
+            img.width = "150";
+
+            tdPreviews.appendChild(img);
+            
+            tr.appendChild(tdCameraID);
+            tr.appendChild(tdCameraName);
+            tr.appendChild(tdPreviews);
+            tr.appendChild(tdRoverName);
+
+            document.querySelector("tbody").appendChild(tr);
+          }
+        })
+      }
+    </script>
+  </head>
+  <body class="container-fluid">
+    <div class="mt-3">
+      <button class="btn btn-primary" onclick="GetDataClick()">GetData</button>
+    </div>
+    <div class="mt-3">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <td>Camera ID</td>
+            <td>Camera Name</td>
+            <td>Previews</td>
+            <td>Rover Name</td>
+          </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>

@@ -1,18 +1,19 @@
 [
     {
-        "Name":"Samsung",
-        "Price":"5600.41"
-    },
-    {
         "Name":"Nike Casuals",
-        "Price":"3400.44"
+        "Price":526.15
     },
     {
-        "Name":"winter jocket",
-        "Price":"4153.44"
+        "Name":"Samsung TV",
+        "Price":589.25
     },
     {
-        "Name":"T Shirt",
-        "Price":"5892.44"
+        "Name":"Winter Jacket",
+        "Price":856.515
+    },
+    {
+        "Name":"Shoes",
+        "Price":5893.515
     }
+
 ]

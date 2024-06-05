@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="/node_modules/bootstrap-icons/font/bootstrap-icons.css"
+    />
+    <link
+      rel="stylesheet"
+      href="/node_modules/bootstrap/dist/css/bootstrap.css"
+    />
+    <script>
+      var cities = ["Pune", "Hyderabad", "Nagpur"];
+      function LoadCities() {
+        cities.sort();
+        document.getElementById("lstCities").innerHTML = "";
+        for (var city of cities) {
+          var option = document.createElement("option");
+          option.text = city.toUpperCase();
+          option.value = city;
+          document.getElementById("lstCities").appendChild(option);
+        }
+      }
+      function bodyload() {
+        LoadCities();
+        GetCount();
+      }
+      function AddClick() {
+        var cityName = document.getElementById("txtCity").value;
+        var cityIndex = cities.indexOf(cityName);
+        if (cityIndex >= 0) {
+          alert(`${cityName} Already Exist`);
+        } else {
+          if (cityName == "") {
+            alert("Please Define City Name");
+          } else {
+            cities.push(cityName);
+          }
+        }
+        LoadCities();
+        GetCount();
+        document.getElementById("txtCity").value = "";
+      }
+      function GetCount() {
+        document.getElementById("count").innerHTML = cities.length;
+      }
+      function RemoveClick() {
+        var selectCities = document.getElementById("lstCities").value;
+        var selectIndex = cities.indexOf(selectCities);
+        var flag = confirm(`Are You sure? Want to delete ${selectCities}`);
+        if (flag == true) {
+          cities.splice(selectIndex, 1);
+        } else {
+          alert("You Canceled");
+        }
+        LoadCities();
+        GetCount();
+      }
+      function DeleteClick() {
+        var selectCities = document.getElementById("lstCities").value;
+        var selectIndex = cities.splice(selectCities);
+        LoadCities();
+        GetCount();
+      }
+    </script>
+  </head>
+  <body onload="bodyload()">
+    <div class="container-fluid">
+      <div class="row m-5">
+        <div class="col-4">
+          <h2>Add New City</h2>
+          <div class="input-group">
+            <input type="text" id="txtCity" class="form-control" />
+            <button class="btn btn-primary" onclick="AddClick()">Add</button>
+          </div>
+        </div>
+        <div class="col-8">
+          <h3>
+            Select your Cities :
+            <span
+              class="badge bg-danger rounded rounded-circle"
+              id="count"
+            ></span>
+          </h3>
+          <select
+            name=""
+            id="lstCities"
+            multiple
+            class="form-select"
+            size="3"
+          ></select>
+          <button class="btn btn-danger mt-2" onclick="RemoveClick()">
+            <span class="bi bi-trash-fill"> Remove City</span>
+          </button>
+          <button class="btn btn-warning mt-2 text-dark" onclick="DeleteClick()">
+            <span class="bi bi-trash-fill"> Remove All City</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
